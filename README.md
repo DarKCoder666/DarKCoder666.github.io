@@ -1,1 +1,1 @@
-"Привет адаптивный mobile design" 
+"Hello mobile design" 

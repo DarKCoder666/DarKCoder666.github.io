@@ -1,0 +1,56 @@
+.contact-us-img{
+	background-color: #0093FF;
+	height: 351px;
+	padding-top: 120px;
+}
+
+.contact-us-img h1,
+.contact-us-img h4{
+	text-align: center;
+	color:#fff;
+	font-family: "NautilusPompiliusRegular";
+	vertical-align: middle;
+}
+
+h1.ourLoc{
+	font-family: "RobotoCondensedBold";
+}
+
+.contacts-content img{
+	width: 100%;
+}
+
+.theInfo{
+	text-align: center;
+	text-transform: uppercase;
+	font-family: "RobotoCondensedLight";
+}
+
+.theInfo img{
+	width:90px;
+}
+
+.contacts-info{
+	margin:50px 0;
+}
+
+.form{
+	text-align: center;
+}
+
+.form input{
+	margin-top: 10px;
+	background-color: #D8D8D8;
+	border:none;
+	height: 30px;
+	margin-left: 5%;
+	border:1px solid #ccc;
+}
+
+#textarea{
+	border:none;
+	background-color: #D8D8D8;
+	margin-top:25px;
+	padding:10px;
+	border:1px solid #ccc;
+}

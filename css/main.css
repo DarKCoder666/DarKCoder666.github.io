@@ -233,7 +233,6 @@ section.order{
 }
 
 .blog_item{
-	cursor:pointer;
 	box-shadow: 5px 2px 4px rgba(0, 0, 0, .7);
 	margin-top: 15px;
 	background-color: #E7F8FF;
@@ -255,8 +254,9 @@ section.order{
 
 .right_aside{
 	padding: 15px 20px;
-	background-color: #EEEEEE;
+	background-color: #E1E1E1;
 	margin-top: 20px;
+	box-shadow:5px 2px 4px rgba(0, 0, 0, .7);
 }
 
 .right_aside ul li{
@@ -275,12 +275,18 @@ section.order{
 footer{
 	color:#19a6e9;
 	margin-top: 20px;
-	sfont-family: "RobotoCondensedBold";
 	padding: 10px 0;
 }
 
-footer h6{
-	margin: 0;
-	text-align: right;
-	font-weight: bold;
+footer h4{
+	padding-top: 5px;
+	float: right;
+	text-align: center;
+	font-family: "RobotoCondensedRegular";
+}
+
+footer h2{
+	font-family: "NautilusPompiliusRegular";
+	float: left;
+	text-align: center;
 }

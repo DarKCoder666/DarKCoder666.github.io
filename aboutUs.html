@@ -177,8 +177,8 @@
 
 	<footer>
 		<div class="container">
-			<h6>Developed by DarKCoder</h6>
-			<h6>© 2016 || Все права защищены.</h6>
+			<h2>Mobile Design</h2>
+			<h4>© 2016 Mobile Design || Developed by DarKCoder</h4>
 		</div>
 	</footer>
 
@@ -190,8 +190,18 @@
 	<script src="libs/respond/respond.min.js"></script>
 	<![endif]-->
 	<script src="libs/jquery/jquery-1.11.1.min.js"></script>
-	<script src="js/common.js"></script>
-	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<script>
+		$(document).ready(function() {
+
+			$(".auth_button").click(function(){
+				$(this).next().slideToggle();
+			});
+
+			$(".main_menu_button").click(function(){
+				$('.main_menu ul').slideToggle();
+			});
+		});
+	</script>	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
 </body>
 </html>

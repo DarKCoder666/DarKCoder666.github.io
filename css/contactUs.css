@@ -54,3 +54,15 @@ h1.ourLoc{
 	padding:10px;
 	border:1px solid #ccc;
 }
+
+.formButton{
+	border:none;
+	background-color: #00A5FF;
+	height:42px;
+	font-size:1.4em;
+	font-family: "RobotoCondensedBold";
+	border-radius:7px;
+	box-shadow:0 0 5px rgba(0, 0, 0, .8);
+	margin-top: 40px;
+	min-width:190px;
+}

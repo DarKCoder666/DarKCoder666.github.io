@@ -239,33 +239,53 @@ function TheSlider(sliderSettings) {
 		activeElementNum = activeElement.getAttribute('img-num'),
 		activeElementSliderPos = activeElement.getAttribute('slider-pos');
 
+		var	nextElement = document.querySelector('#' + sliderWrapId + ' [img-num=\"' + (+activeElementNum + 1) + '\"]');
+
 		removingAllActiveElementsById();
-
-		if((+activeElementNum + 1) == imagesCount) {
-			slider.style.left = +slider.lastChild.getAttribute('slider-pos') * getWidth() + 'px';
-
-			setTimeout(function() {
+		if(nextElement == null) {
 				clearTransition();
-				slider.lastChild.id = sliderWrapId + '-active';
 				slider.appendChild(slider.firstChild);
+				slider.lastChild.id = sliderWrapId + '-active';
 				setSliderPosToImages();
 				setImgNum();
-				slider.style.left = (+activeElementSliderPos) * getWidth() + 'px';
+				slider.style.left = (+activeElementSliderPos + 1) * getWidth() + 'px';
 
 				setTimeout(function() {
 					setTransition();
+					slider.style.left = +slider.lastChild.getAttribute('slider-pos') * getWidth() + 'px';
 				}, 40);
-			}, duration);
-
-
 		} else {
-			var	nextElement = document.querySelector('#' + sliderWrapId + ' [img-num=\"' + (+activeElementNum + 1) + '\"]'),	
-				nextElementSliderPos = nextElement.getAttribute('slider-pos');
+			var nextElementSliderPos = nextElement.getAttribute('slider-pos');
 
 			nextElement.id = sliderWrapId + '-active';
-
-			slider.style.left = +nextElementSliderPos * getWidth() + 'px';
+			slider.style.left = +nextElementSliderPos * getWidth() + 'px';			
 		}
+
+		// nextElement.id = sliderWrapId + '-active';
+
+		// slider.style.left = +nextElementSliderPos * getWidth() + 'px';
+
+		// console.log(activeElementNum);
+		// if((+activeElementNum + 1) == imagesCount) {
+		// 	slider.style.left = +slider.lastChild.getAttribute('slider-pos') * getWidth() + 'px';
+
+		// 	setTimeout(function() {
+		// 		clearTransition();
+		// 	slider.lastChild.id = sliderWrapId + '-active';
+		// 		slider.appendChild(slider.firstChild);
+		// 		setSliderPosToImages();
+		// 		setImgNum();
+		// 		slider.style.left = (+activeElementSliderPos) * getWidth() + 'px';
+
+		// 		setTimeout(function() {
+		// 			setTransition();
+		// 		}, 40);
+		// 	}, duration);
+
+
+		// }
+
+
 	}
 
 	function prev() {

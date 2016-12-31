@@ -3,10 +3,12 @@ function TheSlider(sliderSettings) {
 	var sliderWrapId = sliderSettings.sliderWrapId,
 		widthInPercents = 50,
 		widthInPix,
+		slideHeight, //Значение по умолчанию объявляется ниже.
 		autoplay = true,
 		intervalTime = 3000,
 		duration = 500,
 		switches = true,
+		switchesType = 'images',
 		isWidthInPix, //Нужно для проверки, в чем заданна ширина.
 		arrow = 'https://cdn4.iconfinder.com/data/icons/ui-icon-part-3/131/slider-512.png';
 
@@ -32,6 +34,10 @@ function TheSlider(sliderSettings) {
 			isWidthInPix = false;
 		}
 
+		if(sliderSettings.height !== undefined) {
+			slideHeight = sliderSettings.height;
+		}
+
 		if(sliderSettings.autoplay !== undefined) {
 			autoplay = sliderSettings.autoplay;
 		}
@@ -46,7 +52,12 @@ function TheSlider(sliderSettings) {
 
 		if(sliderSettings.switches !== undefined) {
 			switches = sliderSettings.switches;
+
+			if(sliderSettings.switchesType !== undefined) {
+				switchesType = sliderSettings.switchesType;
+			}
 		}
+
 
 		if(sliderSettings.arrow !== undefined) {
 			arrow = sliderSettings.arrow;
@@ -72,6 +83,8 @@ function TheSlider(sliderSettings) {
 		}	
 	}
 
+	slideHeight = getWidth() * 2/3;
+
 	function setTransition() {
 		slider.style.transition = 'all ' + (duration / 1000) + 's ease-in-out';
 	}
@@ -81,9 +94,10 @@ function TheSlider(sliderSettings) {
 	}
 
 	var sliderWrap = document.getElementById(sliderWrapId),
-		images = sliderWrap.children,
-		imagesCount = images.length,
-		slider = document.createElement('div');
+		slides = sliderWrap.children,
+		slidesCount = slides.length,
+		slider = document.createElement('div'),
+		controllersWrap = document.createElement('div');
 
 	sliderWrap.style.margin = '0 auto';
 	sliderWrap.style.position = 'relative';
@@ -91,26 +105,40 @@ function TheSlider(sliderSettings) {
 	
 	//Переносим все картинки в блок slider. А его, в главный блок.
 	(function() {
-		slider.style.width = getWidth() * imagesCount + 'px';
+		slider.style.width = getWidth() * slidesCount + 'px';
 		setTransition();
 
 		slider.id = 'slider-' + sliderWrapId;
 		with(slider.style) {
 			position = 'relative';
+			display = 'flex';
+			flexDirection = 'row';
 			left = 0;
 		}
 
-		//Задаём картинке нужную ширину и атрибут, затем передаём её объекту data
-		for (var i = 0; i < imagesCount; i++) {
-			if(i == 0) {
-				images[0].id = sliderWrapId + '-active';
-			}
-			setWidth(images[0]);
-			images[0].setAttribute('img-num', i + 1);
-			images[0].setAttribute('slider-pos', -i);
-			images[0].setAttribute('img-id', i + 1);
+		var slidesHeightsSum = 0;
+		console.log(getWidth() * 2/3);
 
-			slider.appendChild(images[0]);
+		//Задаём картинке нужную ширину и атрибут, затем передаём её объекту data
+		for (var i = 0; i < slidesCount; i++) {
+			var imgUrl = slides[0].getAttribute('data-image');
+			if(i == 0) {
+				slides[0].id = sliderWrapId + '-active';
+			}
+			setWidth(slides[0]);
+			slides[0].setAttribute('img-num', i + 1);
+			slides[0].setAttribute('slider-pos', -i);
+			slides[0].setAttribute('img-id', i + 1);
+
+			with(slides[0].style) {
+				backgroundImage = 'url(' + imgUrl + ')';
+				backgroundSize = 'cover';
+				backgroundPosition = 'center';
+				backgroundRepeat = 'no-repeat';
+				height = slideHeight + 'px';
+			}
+
+			slider.appendChild(slides[0]);
 		}
 
 		sliderWrap.innerHTML = '';
@@ -119,10 +147,8 @@ function TheSlider(sliderSettings) {
 		sliderWrap.appendChild(slider);
 	})();
 
-	//Создание контроллеров и их настройка.
+	// Создание контроллеров и их настройка.
 	(function() {
-		var controllersWrap = document.createElement('div');
-
 		if(!switches) {
 			controllersWrap.style.display = 'none';	
 		} else {
@@ -135,20 +161,32 @@ function TheSlider(sliderSettings) {
 			}
 		}
 
-		for (var i = 0; i < imagesCount; i++) {
-			var controller = document.createElement('div'),
-				controllerImg = document.createElement('img'),
-				imgSrc = slider.children[i].getAttribute('src');
+		for (var i = 0; i < slidesCount; i++) {
+			var controller = document.createElement('div');
+	
+			if(switchesType == 'images') {
+				var controllerImg = document.createElement('img'),			
+					imgSrc = slider.children[i].getAttribute('data-image');
+
+				controllerImg.setAttribute('src', imgSrc);
+				controllerImg.width = 30;
+
+				controller.appendChild(controllerImg);
+			} else {
+				with(controller.style) {
+					width = '15px';
+					height = '15px';
+					borderRadius = '50%';
+					transition = 'all .5s ease';
+				}
+				controller.setAttribute('class', 'controller-of-' + sliderWrapId);
+			}
 
 			controller.setAttribute('pos', i + 1);
 			if(controller.getAttribute('pos') == 1) {
 				controller.id = 'activeController-' + sliderWrapId;
 			}
 
-			controllerImg.setAttribute('src', imgSrc);
-			controllerImg.width = 30;
-
-			controller.appendChild(controllerImg);
 			with(controller.style) {
 				margin = '5px';
 				cursor = 'pointer';
@@ -202,6 +240,7 @@ function TheSlider(sliderSettings) {
 			cursor = 'pointer';
 			opacity = 0.4;
 			transition = 'all .4s ease';
+			filter = 'drop-shadow(0px 0px 5px #fff)';
 		}
 		with(rightArrow.style) {
 			height = sliderWrap.offsetHeight / 5 + 'px';
@@ -212,6 +251,7 @@ function TheSlider(sliderSettings) {
 			transform = 'rotate(180deg)';
 			opacity = 0.4;
 			transition = 'all .4s ease';
+			filter = 'drop-shadow(0px 0px 5px #fff)';
 		}
 
 		rightArrow.onclick = function() {
@@ -274,11 +314,21 @@ function TheSlider(sliderSettings) {
 				setTransition();
 				slider.style.left = +slider.lastChild.getAttribute('slider-pos') * getWidth() + 'px';
 			}, 40);
+
+			//Задаём нужному контроллеру id  active.
+			var nextElemId = slider.lastChild.getAttribute('img-id');
+			removingAllActiveControllersId();
+			controllersWrap.children[+nextElemId - 1].id = 'activeController-' + sliderWrapId;
 		} else {
 			var nextElementSliderPos = nextElement.getAttribute('slider-pos');
 
 			nextElement.id = sliderWrapId + '-active';
-			slider.style.left = +nextElementSliderPos * getWidth() + 'px';			
+			slider.style.left = +nextElementSliderPos * getWidth() + 'px';	
+
+			//Задаём нужному контроллеру id  active.
+			var nextElemId = nextElement.getAttribute('img-id');
+			removingAllActiveControllersId();
+			controllersWrap.children[+nextElemId - 1].id = 'activeController-' + sliderWrapId;		
 		}
 	}
 
@@ -303,6 +353,10 @@ function TheSlider(sliderSettings) {
 				slider.style.left = 0;
 			}, 5);
 
+			//Задаём нужному контроллеру id  active.
+			var nextElemId = slider.firstChild.getAttribute('img-id');
+			removingAllActiveControllersId();
+			controllersWrap.children[+nextElemId - 1].id = 'activeController-' + sliderWrapId;
 		} else {
 			var	prevElement = document.querySelector('#' + sliderWrapId + ' [img-num=\"' + (+activeElementNum - 1) + '\"]'),	
 				prevElementSliderPos = prevElement.getAttribute('slider-pos');
@@ -310,17 +364,22 @@ function TheSlider(sliderSettings) {
 			prevElement.id = sliderWrapId + '-active';
 
 			slider.style.left = +prevElementSliderPos * getWidth() + 'px';
+
+			//Задаём нужному контроллеру id  active.
+			var prevElemId = prevElement.getAttribute('img-id');
+			removingAllActiveControllersId();
+			controllersWrap.children[+prevElemId - 1].id = 'activeController-' + sliderWrapId;		
 		}
 	}
 
 	function setSliderPosToImages() {
-		for (var i = 0; i < imagesCount; i++) {
+		for (var i = 0; i < slidesCount; i++) {
 			slider.children[i].setAttribute('slider-pos', -i);
 		}
 	}
 
 	function setImgNum() {
-		for (var i = 0; i < imagesCount; i++) {
+		for (var i = 0; i < slidesCount; i++) {
 			slider.children[i].setAttribute('img-num', i + 1);
 		}
 	}
@@ -338,6 +397,17 @@ function TheSlider(sliderSettings) {
 			activeElems[i].id = '';
 		}
 	}
+
+	//Немного стилей.
+	(function() {
+		var styles = document.createElement('style');
+		var theStyles = '#activeController-' + sliderWrapId + 
+			'{ background-color: red}' +
+			'.controller-of-' + sliderWrapId + 
+			'{ background-color: #ccc}';
+		styles.innerHTML = theStyles;
+		document.body.appendChild(styles);
+	})();
 }
 
 var slider1 = new TheSlider({
@@ -347,5 +417,6 @@ var slider1 = new TheSlider({
 	duration: 400,
 	intervalTime: 4000,
 	switches: true,
+	switchesType: 'imagess',
 	arrow: 'arrow.png'
 });

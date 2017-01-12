@@ -1,18 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
-	<title>Slider</title>
+	<title>MODUS</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<div id="sliderWrap">
-		<img src="3.jpg">
-		<img src="1.jpg">
-		<img src="2.jpg">
-		<img src="4.jpg">
-		<img src="5.jpg">
-	</div>
+	<header>
+		<div class="header__wrap">
+			<div class="header__logo"><img src="img/icons/mainIcon.png"></div>
+			<ul class="header__nav">
+				<li><a href="#">home</a></li>
+				<li><a href="#">about</a></li>
+				<li><a href="#">services</a></li>
+				<li class="header__nav-item-portfolio">
+					<img src="img/icons/arrow.png">
+					<a href="#">portfolio</a>
+					<ul>
+						<li><a href="#">some page-1</a></li>
+						<li><a href="#">some page-2</a></li>
+						<li><a href="#">some page-3</a></li>
+					</ul>
+				</li>
+				<li><a href="#">blog</a></li>
+				<li><a href="#">features</a></li>
+				<li><a href="#">contacts</a></li>
+				<li><img src="img/icons/search.png"></li>
+			</ul>
+		</div>
+	</header>
 
-	<script src="main.js"></script>
+	<section id="slider" slider-width='100%'>
+		<div id="slider-wrap">
+			<div id="slide-1" class="slide">
+				<div>
+					<h1>Vestibulum</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, consectetur quis quas molestiae ea sed.</p>
+				</div>
+			</div>
+			<div id="slide-2" class="slide">
+				<h1>Vestibulum</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, consectetur quis quas molestiae ea sed.</p>
+			</div>
+			<div id="slide-3" class="slide">
+				<h1>Vestibulum</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, consectetur quis quas molestiae ea sed.</p>
+			</div>
+			<div id="slide-1" class="slide">
+				<div>
+					<h1>Vestibulum</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, consectetur quis quas molestiae ea sed.</p>
+				</div>
+			</div>
+			<div id="slide-2" class="slide">
+				<h1>Vestibulum</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, consectetur quis quas molestiae ea sed.</p>
+			</div>
+			<div id="slide-3" class="slide">
+				<h1>Vestibulum</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, consectetur quis quas molestiae ea sed.</p>
+			</div>
+		</div>	
+		<div id="slider-controllers">
+			<span slide-id="1"></span>
+			<span slide-id="2"></span>
+			<span slide-id="3"></span>
+		</div>
+
+		<div id="slideLeft">
+			<img src="img/icons/sliderArrow.png">
+		</div>
+		<div id="slideRight">
+			<img src="img/icons/sliderArrow.png">
+		</div>
+	</section>
+
+
+	<script src="js/main.js"></script>
 </body>
 </html>

@@ -78,6 +78,9 @@ slideRightButton.onclick = function() {
 
 /////////////////////////////////
 function slideRight() {
+	workingMoment = true;
+	setTimeout(function() {workingMoment = false}, getDuration.inMs);
+
 	clearInterval(sliderInterval);
 	sliderInterval = setInterval(slideRight, sliderIntervalTime);
 
@@ -101,6 +104,9 @@ function slideRight() {
 }
 
 function slideLeft() {
+	workingMoment = true;
+	setTimeout(function() {workingMoment = false}, getDuration.inMs);
+
 	clearInterval(sliderInterval);
 	sliderInterval = setInterval(slideRight, sliderIntervalTime);
 

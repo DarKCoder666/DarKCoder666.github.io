@@ -129,6 +129,24 @@ header {
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.6); }
 
+#slide-1 {
+  background-image: url(../img/sliderbg-1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+#slide-2 {
+  background-image: url(../img/sliderbg-2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+#slide-3 {
+  background-image: url(../img/sliderbg-3.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
 #slideLeft {
   position: absolute;
   background-color: #FF5249;

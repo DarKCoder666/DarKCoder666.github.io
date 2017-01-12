@@ -112,6 +112,7 @@ header {
   align-items: center;
   justify-content: center; }
   .slide h1 {
+    width: 390px;
     font-size: 3em;
     display: inline-block;
     color: white;

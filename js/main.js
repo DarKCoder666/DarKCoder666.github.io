@@ -1,5 +1,5 @@
 var sliderId = 'slider',
-	duration = '.6s',
+	duration = '1000',
 	sliderIntervalTime = '2000';
 
 
@@ -30,13 +30,20 @@ var getWidth = (function() {
 	}
 })();
 
+var getDuration = (function() {
+	return {
+		inMs: duration,
+		inS: duration / 1000 + 's'
+	}
+})();
+
 //Задание изначальных значений элментам слайдера.
 for (var i = 0; i < slidesCount; i++) {
 	var el = slides[i];
 
 	el.style.width = '0';
 	el.style.overflow = 'hidden';
-	el.style.transition = 'all ' + duration + " ease-in-out";
+	el.style.transition = 'all ' + getDuration.inS + " ease-in-out";
 	el.setAttribute('posInSlider', i + 1);
 }
 
@@ -50,8 +57,24 @@ var sliderInterval = setInterval(slideRight, sliderIntervalTime);
 
 
 //Настройка стрелок.
-slideLeftButton.onclick = slideLeft;
-slideRightButton.onclick = slideRight;
+var workingMoment = false;
+
+slideLeftButton.onclick = function() {
+	if(workingMoment) {
+		return;
+	}
+	workingMoment = true;
+	setTimeout(function() {workingMoment = false}, getDuration.inMs);
+	slideLeft();
+};
+slideRightButton.onclick = function() {
+	if(workingMoment) {
+		return;
+	}
+	workingMoment = true;
+	setTimeout(function() {workingMoment = false}, getDuration.inMs);
+	slideRight();
+}
 
 /////////////////////////////////
 function slideRight() {

@@ -1,0 +1,15 @@
+// css
+@import '../css/normalize';
+@import '../css/font-awesome.min';
+
+// scss
+@import 'variables';
+@import 'mixins';
+@import 'header';
+@import 'footer';
+
+@import 'modules/aside';
+@import 'modules/section-content';
+@import 'modules/menu';
+
+

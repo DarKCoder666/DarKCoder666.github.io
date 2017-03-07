@@ -1,0 +1,148 @@
+.menu-main{
+	width:5%;
+	height:10%;
+	z-index:100;
+	position:fixed;
+	top:60px;
+	left:0;
+	ul{
+		width:30%;
+		height:100%;
+		margin:0;
+		padding:60px 0 0 0;
+		background:white;
+		transition:all .3s ease;
+		box-shadow:0 0 10px rgba(0,0,0, .5);
+		position:absolute;
+		left:-500px;
+		li{
+			width:80%;
+			margin:0 auto;
+			padding:15px;
+			color:#555555;
+			cursor:pointer;
+			list-style:none;
+			font-weight:bold;
+			font-style:italic;
+			box-sizing:border-box;
+			border-bottom:1px solid #ccc;
+		}
+	}
+	&:hover{
+		width:100%;
+		height:100%;
+		position:fixed;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		background:rgba(0,0,0, .8);
+		ul{
+			transition:all .5s ease;
+			left:0;
+		}
+	}
+	&:hover .hamburger{
+		left:31%;
+		transition:all .5s ease;
+	}
+}
+.hamburger{
+	width:50px;
+	height:50px;
+	font-style:normal;
+	font-size:30px;
+	line-height:49px;
+	box-shadow:0 0 10px rgba(0,0,0,.5);
+	text-align:center;
+	border:none;
+	cursor:pointer;
+	background:rgba(250,250,250, .5);
+	position:fixed;
+	top:65px;
+	left:5px;
+	transition:all .5s ease;
+}
+.icon-nav{
+	font-style:normal;
+	i{
+		font-size:20px;
+		padding:0 10px 0 0;
+	}
+}
+// //// MEDIA SCREEN
+@media screen and (max-width:400px){
+	.menu-main{
+		width:5%;
+		height:10%;
+		z-index:100;
+		position:fixed;
+		top:10px;
+		left:0;
+		ul{
+			width:80%;
+			height:100%;
+			margin:0;
+			padding:30px 0 0 0;
+			background:white;
+			transition:all .3s ease;
+			box-shadow:0 0 10px rgba(0,0,0, .5);
+			overflow:scroll;
+			position:absolute;
+			left:-500px;
+			li{
+				width:80%;
+				margin:0 auto;
+				padding:15px;
+				color:#555555;
+				cursor:pointer;
+				list-style:none;
+				font-weight:bold;
+				font-style:italic;
+				box-sizing:border-box;
+				border-bottom:1px solid #ccc;
+			}
+		}
+		&:hover{
+			width:100%;
+			height:100%;
+			position:fixed;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			background:rgba(0,0,0, .8);
+			ul{
+				transition:all .5s ease;
+				left:0;
+			}
+		}
+		&:hover .hamburger{
+			left:81%;
+			transition:all .5s ease;
+		}
+	}
+	.hamburger{
+		width:40px;
+		height:40px;
+		font-style:normal;
+		font-size:30px;
+		line-height:41px;
+		box-shadow:0 0 10px rgba(0,0,0,.5);
+		text-align:center;
+		border:none;
+		cursor:pointer;
+		background:rgba(250,250,250, .5);
+		position:fixed;
+		top:15px;
+		left:5px;
+		transition:all .5s ease;
+	}
+	.icon-nav{
+		font-style:normal;
+		i{
+			font-size:20px;
+			padding:0 10px 0 0;
+		}
+	}
+}

@@ -28,6 +28,7 @@ function c14() {
 			}
 
 			ctx.putImageData(imgData, 0, 0);
+			console.log("Hello");
 
 		}
 	}
@@ -443,58 +444,6 @@ window.onload = function() {
 Number.prototype.degree = function() {
 	return this * Math.PI / 180;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

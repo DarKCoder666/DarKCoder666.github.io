@@ -27,6 +27,8 @@ function c14() {
 				curRow += 15;
 			}
 
+			ctx.putImageData(imgData, 0, 0);
+
 		}
 	}
 }
@@ -441,6 +443,37 @@ window.onload = function() {
 Number.prototype.degree = function() {
 	return this * Math.PI / 180;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -24,7 +24,7 @@ function c14() {
 						pixels[thisRowBytes + j + 2] = 255 - pixels[thisRowBytes + j + 2];
 					}
 				}
-				curRow += 4;
+				curRow += 5;
 			}
 
 			ctx.putImageData(imgData, 0, 0);

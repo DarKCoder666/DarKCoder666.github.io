@@ -15,18 +15,19 @@ function c14() {
 			var pixels = imgData.data;
 			var curRow = 0, maxRow = ctx.canvas.height;
 
-				for (var i = 0; i < ctx.canvas.height; i++) {
-					var thisRowBytes = (curRow + i) * img.width * 4;
-					for (var j = 0; j < img.width; j += 4) {
+			while(curRow < maxRow) {
+				for (var i = 0; i < 5; i++) {
+					var thisRowBytes = (curRow + i) * ctx.canvas.width * 4;
+					for (var j = 0; j < ctx.canvas.width; j += 4) {
 						pixels[thisRowBytes + j] = 255 - pixels[thisRowBytes + j];
 						pixels[thisRowBytes + j + 1] = 255 - pixels[thisRowBytes + j + 1];
 						pixels[thisRowBytes + j + 2] = 255 - pixels[thisRowBytes + j + 2];
 					}
 				}
+				curRow += 15;
+			}
 
 			ctx.putImageData(imgData, 0, 0);
-			console.log("Hello");
-
 		}
 	}
 }

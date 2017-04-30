@@ -17,14 +17,14 @@ function c14() {
 
 			while(curRow < maxRow) {
 				for (var i = 0; i < 5; i++) {
-					var thisRowBytes = (curRow + i) * ctx.canvas.width * 4;
-					for (var j = 0; j < ctx.canvas.width; j += 4) {
+					var thisRowBytes = (curRow + i) * ctx.canvas.width * 2 * 4;
+					for (var j = 0; j < ctx.canvas.width * 2; j += 4) {
 						pixels[thisRowBytes + j] = 255 - pixels[thisRowBytes + j];
 						pixels[thisRowBytes + j + 1] = 255 - pixels[thisRowBytes + j + 1];
 						pixels[thisRowBytes + j + 2] = 255 - pixels[thisRowBytes + j + 2];
 					}
 				}
-				curRow += 15;
+				curRow += 5;
 			}
 
 			ctx.putImageData(imgData, 0, 0);

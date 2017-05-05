@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Sans'), local('PTSans-Regular'),
+        url(../fonts/ptsans/pt-sans_37660512ac27f770b4231a4d31c0ae96.woff) format('woff'),
+        url(../fonts/ptsans/pt-sans_37660512ac27f770b4231a4d31c0ae96.ttf) format('truetype');
+}
+
+body, canvas {
+	margin: 0;
+	padding: 0;
+}
+
+.menu {
+	font-family: "PT Sans";
+	font-weight: bold;
+	position: absolute;
+	left: -250px;
+	top: 0;
+	width: 250px;
+	background-color: #4F5A6E;
+	transition: all ease-in-out .5s;
+}
+.menu_wrap {
+	position: relative;
+}
+
+.humburger {
+	position: absolute;
+	top: 0;
+	right: -44px;
+	width: 45px;
+	height: 45px;
+	background-color: #4F5A6E;
+	cursor: pointer;
+}
+
+.humburger > i {
+	font-size: 2.5em;
+	color: #A7B3CB;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+
+.configs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.configs ul {
+	list-style: none;
+	padding: 0;
+	margin-top: 0;
+	width: 100%;
+}
+
+.configs ul li {
+	color: #A7B3CB;
+	width: 100%;
+	text-align: center;
+	padding: 7px 0;
+	cursor: pointer;
+	/*transition: all ease-in-out .05s;*/
+}
+
+.configs ul li:hover {
+	background-color: #606d86;
+	color: white;
+}
+
+.title {
+	color: #FFFFFF;
+}
+
+@media (max-width: 500px) {
+	.title {
+		margin: 10px auto;
+	}
+
+	.configs ul li {
+		padding: 4px 0;
+	}
+}

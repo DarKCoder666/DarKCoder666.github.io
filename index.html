@@ -1,41 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Podcards In Space</title>
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title>Episode 23</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		canvas {
+			display: block;
+		}
+	</style>
 </head>
 <body>
-	<section class="menu">
-		<div class="menu_wrap">
-			<div class="humburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
-			<div class="configs">
-				<h1 class="title">Скорость</h1>
-				<ul>
-					<li id="faster">Ускорить</li>
-					<li id="slower">Замедлить</li>
-					<li id="standart">Базовый</li>
-				</ul>
-				<h1 class="title">Тип элементов</h1>
-				<ul>
-					<li id="circle">Круги</li>
-					<li id="square">Квадраты</li>
-					<li id="letter">Буквы</li>
-					<li id="image">Картины</li>
-				</ul>
-				<h1 class="title">Направление</h1>
-				<ul>
-					<li id="toMyself">На себя</li>
-					<li id="outMyself">От себя</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-
-	<canvas id="podcards"></canvas>
-	<script src="js/requestAnimationFramePolyfill.js"></script>
-	<script src="js/main.js"></script>
+	<canvas id="canvas"></canvas>
+	<script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,94 @@
+.styles {
+	@include container-fluid;
+}
+
+.styles_cards {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.styles_card {
+	width: 33%;
+	height: 250px;
+	position: relative;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.style_card_hiddenBlock {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	right: 40px;
+	bottom: 40px;
+	background-color: #2c3f52;
+
+	transition-delay: .1s;
+	transition: all .2s ease-in-out;
+}
+
+.styles_card:hover .style_card_hiddenBlock {
+	top: 10px;
+	left: 10px;
+	right: 10px;
+	bottom: -40px;
+}
+
+.style_card_visibleBlock-1 {
+	background-image: url(../img/vinchun.jpg);
+}
+
+.style_card_visibleBlock-2 {
+	background-image: url(../img/taizi.jpg);
+}
+
+.style_card_visibleBlock-3 {
+	background-image: url(../img/shaolin.jpg);
+}
+
+.style_card_visibleBlock-4 {
+	background-image: url(../img/cigun.jpg);
+}
+
+.style_card_visibleBlock-5 {
+	background-image: url(../img/bagua.jpg);
+}
+
+.style_card_visibleBlock-6 {
+	background-image: url(../img/badzicuan.jpg);
+}
+
+.style_card_visibleBlock {
+	position: relative;
+	z-index: 1000;
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+}
+
+.style_card_info {
+	padding: 0 20px 5px 20px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+
+	h1 {
+		margin:0 0 10px 0;
+	}
+	a {
+		color: #fff;
+		font-family: 'Open Sans';
+		background-color: #ED4E6E;
+		padding: 5px 10px;
+		text-decoration: none;
+	}
+}

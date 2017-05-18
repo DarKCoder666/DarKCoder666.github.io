@@ -4,8 +4,16 @@ function setHeightByWidth(elems) {
 	elems.forEach = [].forEach;
 
 	elems.forEach(function(e) {
-		console.log(e);
 		e.style.height = e.clientWidth + 'px';
+
+		e.addEventListener('mouseenter', function() {
+			e.style.zIndex = 10000;
+		});
+		e.addEventListener('mouseleave', function() {
+			setTimeout(function(){
+				e.style.zIndex = 1;
+			}, 200);
+		});
 	});
 }
 

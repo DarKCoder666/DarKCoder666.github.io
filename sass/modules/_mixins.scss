@@ -1,0 +1,19 @@
+$mobile-width: "max-width:768px";
+$tablet-width: "max-width:1200px";
+$desktop-width: "min-width:1200px";
+
+@mixin container-fluid() {
+	width:auto;
+
+	@media screen and ($tablet-width) {
+		width:95%;
+		margin:0 auto;
+		max-width:1000px;
+	}
+
+	@media screen and ($desktop-width) {
+		width:90%;
+		margin:0 auto;
+		max-width:1110px;
+	}
+}

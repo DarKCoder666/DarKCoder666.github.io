@@ -1,0 +1,16 @@
+.directions {
+	color: #676767;
+
+	@include container-fluid;
+}
+
+.directions_ul {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	font-weight: bold;
+	font-size: 1.3em;
+	margin: 50px 0 20px 0;
+}

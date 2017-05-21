@@ -1,42 +1,356 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Podcards In Space</title>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title>Majestic</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/elastislide.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<noscript>
+		<style>
+			.es-carousel ul{
+				display:block;
+			}
+		</style>
+	</noscript>
+	<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">	
+		<div class="rg-image-wrapper">
+			{{if itemsCount > 1}}
+				<div class="rg-image-nav">
+					<a href="#" class="rg-image-nav-prev">Previous Image</a>
+					<a href="#" class="rg-image-nav-next">Next Image</a>
+				</div>
+			{{/if}}
+			<div class="rg-image"></div>
+			<div class="rg-loading"></div>
+			<div class="rg-caption-wrapper">
+				<div class="rg-caption" style="display:none;">
+					<p></p>
+				</div>
+			</div>
+		</div>
+	</script>
 </head>
 <body>
-	<section class="menu">
-		<div class="menu_wrap">
+	<canvas id="canvas"></canvas>
+	<header id="header">
+		<div class="header_bg"></div>
+		<div class="header_wrap">
+			<div class="header_firstText">
+				<div class="header_text">
+					<p class="header_text_1">Школа Кунг-Фу<br>
+					<span class="header_text_2">В Ташкенте</span></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="header_traingles"></div>
+	</header>
+
+	<div class="menuLine">
+		<div class="menuLine_wrap">
+			<div class="logo">
+				<h3>WUSHU</h3>
+			</div>
 			<div class="humburger">
 				<div class="humburgerInner"></div>
 			</div>
-			<div class="configs">
-				<h1 class="title">Скорость</h1>
-				<ul>
-					<li id="faster">Ускорить</li>
-					<li id="slower">Замедлить</li>
-					<li id="standart">Базовый</li>
-				</ul>
-				<h1 class="title">Тип элементов</h1>
-				<ul>
-					<li id="circle">Круги</li>
-					<li id="square">Квадраты</li>
-					<li id="letter">Буквы</li>
-					<li id="image">Картины</li>
-				</ul>
-				<h1 class="title">Направление</h1>
-				<ul>
-					<li id="toMyself">На себя</li>
-					<li id="outMyself">От себя</li>
-				</ul>
+			<nav class="menu">
+				<a href="#benefit"><li>Польза УШУ</li></a>
+				<a href="#styles"><li>Стили УШУ</li></a>
+				<a href="#aboutTeacher"><li>Об Учителе</li></a>
+				<a href="#gallery"><li>Галлерея</li></a>
+				<a href="#contacts"><li>Контакты</li></a>
+			</nav>
+		</div>
+	</div>
+
+	<section class="directions">
+		<ul class="directions_ul">
+			<li>Оздоровительное УШУ</li>
+			<li>Традиционное УШУ</li>
+			<li>Боевое УШУ</li>
+			<li>Большое кол-во различных стилей</li>
+		</ul>
+	</section>
+
+	<section id="benefit" class="benefit">
+		<h1 class="section_title">Польза занятий УШУ</h1>
+		<div class="benefit_wrap">	
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Улучшение здоровья</h1>
+				<p>Ни для кого не секрет, что занятие спортом является полезным для здоровья занятием.</p>
+			</div>
+
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Выработка воли</h1>
+				<p>Воля является одним из самых выжных свойств воина.
+					Потому и у нас Воле уделяется не мало внимания, выражающихся в различных упражнениях и заданиях.
+				</p>
+			</div>
+
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Выроботка дисциплины</h1>
+				<p>Дисциплина так же является очень важным аспектом в УШУ. Нарушение дисциплины на занятиях не приемлимы.</p>
+			</div>
+			
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Увеличение выносливости</h1>
+				<p>Благодаря занятиям УШУ уже через несколько недель тренировок пробежать 1-2-3 км не составит большого труда. Так же уделяется не малое внимание дыханию.</p>
+			</div>
+			
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Увеличение мускулатуры</h1>
+				<p>Благодаря большому колличеству стилей, оружий, позиций увеличение мускулатуры неизбежно.</p>
+			</div>
+			
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Новый взгляд на мир</h1>
+				<p>УШУ - это не только способ защиты себя и своих близких, но и немалая философия накопленная за тысячилетия. Занимаясь с нами вы так же будете получать не мало теории от Учителя. Благодаря чему вы и получите новый взгляд на мир.</p>
+			</div>
+
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Познание себя</h1>
+				<p>Благодаря УШУ вы начнете познавать себя с самых различных сторон, буд то физически, интеллектуально или духовно.</p>
+			</div>
+
+			<div class="benefit_card">
+				<h1 class="benefit_card_title">Самозащита</h1>
+				<p>В течении не долгого времени вы научитесь защищать не только себя но и окружающих от тех кто применяет свои не с самой лучшей стороны.</p>
 			</div>
 		</div>
 	</section>
 
-	<canvas id="podcards"></canvas>
-	<script src="js/requestAnimationFramePolyfill.js"></script>
+	<section id="styles" class="styles">
+		<h1 class="section_title">Стили УШУ</h1>
+
+		<div class="styles_cards">
+			<div class="styles_card">
+				<figure>
+					<div class="style_card_img style_card_img_1"></div>
+					<figcaption>
+						<h1 class="style_card_name">Винчун</h1>
+						<a class="style_card_button" href="http://ushu.uz/publication/5.html" target="_blank">Узнать больше</a>
+					</figcaption>
+				</figure>		
+			</div>
+			<div class="styles_card">
+				<figure>
+					<div class="style_card_img style_card_img_2"></div>
+					<figcaption>
+						<h1 class="style_card_name">Тайцзицюань</h1>
+						<a class="style_card_button" href="http://ushu.uz/publication/17.html" target="_blank">Узнать больше</a>
+					</figcaption>
+				</figure>		
+			</div>
+			<div class="styles_card">
+				<figure>
+					<div class="style_card_img style_card_img_3"></div>
+					<figcaption>
+						<h1 class="style_card_name">Шаолиньцюань</h1>
+						<a class="style_card_button" href="http://ushu.uz/publication/32.html" target="_blank">Узнать больше</a>
+					</figcaption>
+				</figure>		
+			</div>
+			<div class="styles_card">
+				<figure>
+					<div class="style_card_img style_card_img_4"></div>
+					<figcaption>
+						<h1 class="style_card_name">Цигун</h1>
+						<a class="style_card_button" href="http://ushu.uz/publication/33.html" target="_blank">Узнать больше</a>
+					</figcaption>
+				</figure>		
+			</div>
+			<div class="styles_card">
+				<figure>
+					<div class="style_card_img style_card_img_5"></div>
+					<figcaption>
+						<h1 class="style_card_name">Багуачжан</h1>
+						<a class="style_card_button" href="http://ushu.uz/publication/3.html" target="_blank">Узнать больше</a>
+					</figcaption>
+				</figure>		
+			</div>
+			<div class="styles_card">
+				<figure>
+					<div class="style_card_img style_card_img_6"></div>
+					<figcaption>
+						<h1 class="style_card_name">Бацзицюань</h1>
+						<a class="style_card_button" href="http://ushu.uz/publication/4.html" target="_blank">Узнать больше</a>
+					</figcaption>
+				</figure>		
+			</div>
+		</div>
+	</section>
+
+	<section id="aboutTeacher" class="aboutTeacher">
+		<div class="aboutTeacher_wrap">
+			<h1 class="section_title">Об Учителе</h1>
+
+			<div class="aboutTeacher_content">
+				<div class="aboutTeacher_textInfo">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis atque temporibus, quod quae beatae cupiditate deleniti ea minus et nobis rem quas autem sit non, totam ex odio vel voluptates consectetur sapiente. Maxime dolores, quisquam odit molestiae iusto est inventore voluptate laudantium, rerum officiis eos suscipit nesciunt nobis hic praesentium quam earum adipisci porro saepe repellat blanditiis quas? Quo consectetur eligendi dicta earum, iusto ex architecto libero odit itaque ducimus, necessitatibus. Saepe pariatur, illo quam laborum molestias quos laboriosam eveniet dolorum vitae veniam modi, labore soluta. Consequuntur reprehenderit, eos facere illo, ratione quidem. Quae deserunt labore aut expedita, totam? Eum iste recusandae veniam tenetur voluptatem, quae. Magnam dolores libero provident! Repellendus officiis nemo natus officia. Temporibus assumenda aperiam, perspiciatis minima, eveniet, eum dolor praesentium vero corporis libero non. Non atque, esse nesciunt dolore, repellendus soluta minus ratione incidunt, doloremque magnam, repudiandae ut vitae molestias dolores. Illum porro et praesentium repellat unde, veniam recusandae natus expedita numquam accusantium, odit nisi repellendus magnam dolorem aperiam ad debitis. Ducimus quos natus amet provident reiciendis tenetur corporis eaque labore odio, impedit quis at rerum aliquid hic ipsa! Aperiam blanditiis inventore nemo mollitia, doloribus nulla repudiandae quasi neque nesciunt illum consequuntur. Nostrum autem quo ex!</p>
+				</div>
+				<div class="aboutTeacher_img"></div>
+			</div>
+		</div>
+	</section>
+
+	<section id="gallery" class="gallery">
+		<h1 class="section_title">Галлерея</h1>
+		
+		<div class="gallery_pictures">
+			<div id="rg-gallery" class="rg-gallery">
+				<div class="rg-thumbs">
+					<!-- Elastislide Carousel Thumbnail Viewer -->
+					<div class="es-carousel-wrapper">
+						<div class="es-nav">
+							<span class="es-nav-prev">Previous</span>
+							<span class="es-nav-next">Next</span>
+						</div>
+						<div class="es-carousel">
+							<ul>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/1.jpg" data-large="images/1.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/2.jpg" data-large="images/2.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/3.jpg" data-large="images/3.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/4.jpg" data-large="images/4.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/5.jpg" data-large="images/5.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/6.jpg" data-large="images/6.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/7.jpg" data-large="images/7.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/8.jpg" data-large="images/8.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/9.jpg" data-large="images/9.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/10.jpg" data-large="images/10.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/11.jpg" data-large="images/11.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/12.jpg" data-large="images/12.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/13.jpg" data-large="images/13.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/14.jpg" data-large="images/14.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/15.jpg" data-large="images/15.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/16.jpg" data-large="images/16.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/17.jpg" data-large="images/17.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/18.jpg" data-large="images/18.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="images/thumbs/19.jpg" data-large="images/19.jpg" alt="image01" data-description="Some description" />
+									</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<!-- End Elastislide Carousel Thumbnail Viewer -->
+				</div><!-- rg-thumbs -->
+			</div><!-- rg-gallery -->
+		</div>
+	</section>
+
+	<section id="contacts" class="contacts">
+		<h1 class="section_title">Контакты</h1>
+		<div class="contact_firstAddress">
+			<div class="contacts_mapBlock">
+				<iframe src="https://api-maps.yandex.ru/frame/v1/-/C6vNnI0o" frameborder="0"></iframe>
+			</div>
+			<div class="contacts_info">
+				<div class="contacts_address">
+					<h2>Адрес:</h2>
+					<p>Lorem ipsum dolor sit amet. <br> Lorem ipsum dolor.</p>
+				</div>
+				<div class="contacts_phones">
+					<h2>Номера телефонов</h2>
+					<p>+99899 999 99 99</p>
+					<p>+99899 999 99 99</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<h1>WUSHU</h1>
+		<p>©Copyright 2017</p>
+	</footer>
+
+	<div class="moveTop">
+		<a href="#header"><img src="img/move-top.png"></a>
+	</div>
+
 	<script src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jqTransition.js"></script>
+	<script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/jquery.elastislide.js"></script>
+	<script type="text/javascript" src="js/gallery.js"></script>
 </body>
 </html>

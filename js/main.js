@@ -1,8 +1,18 @@
 window.onload = function() {
+	var imagesBlock = $('.images');
 	var images = document.querySelectorAll('.img');
+
+
 
 	images[0].classList.add('bounceIn');
 	images[0].style.opacity = 1;
+
+	images.forEach = [].forEach;
+	
+	images.forEach(function(el) {
+		el.style.width = document.documentElement.clientWidth + 'px';
+		el.style.height = document.documentElement.clientHeight + 'px';		
+	});		
 	
 	setTimeout(function() {
 		images[1].classList.add('bounceInDown');
@@ -43,6 +53,28 @@ window.onload = function() {
 	setTimeout(function() {
 		images[7].classList.add('bounceInLeft');
 		images[7].style.opacity = 1;
+
+		var ourAddress = $('.ourAddress'),
+			address1 = $('.address1'),
+			address2 = $('.address2'),
+			address3 = $('.address3');
+
+		setTimeout(function() {
+			ourAddress.classList.add('fadeInLeft');
+		}, 500);
+		setTimeout(function() {
+			address1.classList.add('fadeInLeft');
+		}, 700);
+		setTimeout(function() {
+			address2.classList.add('fadeInLeft');
+		}, 900);
+		setTimeout(function() {
+			address3.classList.add('fadeInLeft');
+		}, 1100);
+
+		setTimeout(function() {
+			$('.address h1').classList.add('shake');
+		}, 2500);
 	}, 14000);
 
 }

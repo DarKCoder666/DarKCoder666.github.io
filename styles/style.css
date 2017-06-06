@@ -1,0 +1,196 @@
+.background {
+	width: 100%;
+	z-index: -1000;
+}
+
+.background::before {
+	content: ' ';
+	display: block;
+	background-color: rgba(0,0,0, .4);
+	height: 100%;
+	z-index: -10;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.background::after {
+	z-index: -50;
+	content: ' ';
+	display: block;
+	background-image: url(../img/bg1.jpg);
+	background-size: cover;
+	background-position: center center;
+	height: 100%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+
+.wrapper {
+	z-index: 100;
+	max-width: 1000px;
+	margin: auto;
+	position: relative;
+}
+
+/*First Block*/
+.first-slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	transition: .4s ease-in-out;
+}
+
+.logo,
+.logo_text1,
+.logo_text2
+{
+	opacity: 0;
+	font-family: Georgia;
+}
+
+.logo {
+	transition: .5s ease-in-out;
+}
+
+.greeting_block {
+	position: absolute;
+	color: white;
+	display: flex;
+	transition: .5s ease-in-out;
+}
+
+.greeting_text {
+	margin-left: 50px;
+	transition: .4s ease-in-out;
+}
+
+.logo_text1{
+	font-size: 5em;
+	line-height: 5px;
+	transition: .4s ease-in-out;
+}
+
+.logo_text2{
+	font-size: 1.5em;
+	transition: .4s ease-in-out;
+}
+
+/*First Step*/
+
+.first-slide_next {
+	margin-top: 20px;
+}
+
+.greeting_text_next {
+	margin-top: -10px;
+	margin-left: 30px;
+}
+
+.logo_next {
+	width: 70px;
+	height: 70px;
+}
+
+.logo_text1_next {
+	font-size: 2.7em;
+}
+
+.logo_text2_next {
+	font-size: .7em;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+/*Second Slide*/
+
+.second-slide {
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+.images {
+	position: absolute;
+	bottom: 10px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.img {
+	margin: 10px;
+	cursor: pointer;
+	opacity: 0;
+	box-shadow: 0 0 15px rgba(255, 255, 255, .4);
+}
+
+@media screen and (max-width: 900px) {
+	.wrapper {
+
+	}
+	.logo {
+		width: 90px;
+		height: 90px;
+	}
+
+	.logo_text1 {
+		font-size: 3.3em;
+	}
+
+	.logo_text2 {
+		font-size: 1em;
+	}
+
+	.logo_next {
+		width: 40px;
+		height: 40px;
+	}
+
+	.logo_text1_next {
+		font-size: 1.8em;
+		margin: 23px 0 12px 0;
+	}
+
+	.logo_text2_next {
+		font-size: .6em;
+	}
+
+	.greeting_text_next {
+		margin-left: 20px;
+	}
+
+	.first-slide_next {
+		margin-top: 8px;
+	}
+
+	/*SecondSlide*/
+
+	.img {
+		position: absolute;
+		margin: 5px 0;
+		bottom: 5px;
+	}
+
+	.img1 {
+		z-index: 1;
+	}
+	.img2 {
+		z-index: 2;
+	}
+	.img3 {
+		z-index: 3;
+	}
+}

@@ -27,7 +27,6 @@
 	color: #fff;
 	position: absolute;
 	bottom: 10px;
-	font-family: Arial;
 }
 
 .ourAddress {
@@ -38,10 +37,12 @@
 .address h1 {
 	color: #D9107A;
 	margin: 0;
+	font-weight: normal;
 }
 
 .address h2 {
 	margin: 5px 0;
+	font-weight: normal;
 }
 
 .address {

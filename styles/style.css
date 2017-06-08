@@ -220,9 +220,11 @@ h1.pink {
 }
 
 .address {
-	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 0 0 15px rgba(255,255,255, .5);
+	margin: 5px auto;
 	width: 80%;
-	border-top: dotted 2px #D9107A;
+	border: 1px solid #D9107A;
 }
 
 .ourAddress,

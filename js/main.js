@@ -2,15 +2,17 @@ window.onload = function() {
 	var imagesBlock = $('.images');
 	var images = document.querySelectorAll('.img');
 
-
-
-
 	images.forEach = [].forEach;
 	
 	images.forEach(function(el) {
 		el.style.width = document.documentElement.clientWidth + 'px';
 		el.style.height = document.documentElement.clientHeight + 'px';		
 	});
+
+	//LastBlock config
+	var img7_wrap = $('.img7_wrap');
+	img7_wrap.style.top = (document.documentElement.clientHeight - img7_wrap.clientHeight) / 2 + 'px';
+
 
 	// /FirstBlock
 	images[0].classList.add('bounceIn');
@@ -38,7 +40,7 @@ window.onload = function() {
 			img2Top.style.opacity = 1;
 			img2Bottom.style.opacity = 1;
 		}, 400);
-	}, 2000);
+	}, 3000);
 
 	
 	setTimeout(function() {
@@ -55,36 +57,29 @@ window.onload = function() {
 			img2Top.style.opacity = 1;
 			img2Bottom.style.opacity = 1;
 		}, 400);
-	}, 4000);
+	}, 6000);
 
 	
 	setTimeout(function() {
 		images[3].classList.add('bounceInUp');
 		images[3].style.opacity = 1;
-	}, 6000);
+	}, 9000);
 
 	
 	setTimeout(function() {
 		images[4].classList.add('bounceInRight');
 		images[4].style.opacity = 1;
-	}, 8000);
+	}, 11000);
 
 	
 	setTimeout(function() {
 		images[5].classList.add('bounceIn');
 		images[5].style.opacity = 1;
-	}, 10000);
+	}, 14000);
 
-	
 	setTimeout(function() {
-		images[6].classList.add('bounceInDown');
+		images[6].classList.add('bounceInLeft');
 		images[6].style.opacity = 1;
-	}, 12000);
-
-
-	setTimeout(function() {
-		images[7].classList.add('bounceInLeft');
-		images[7].style.opacity = 1;
 
 		var ourAddress = $('.ourAddress'),
 			address1 = $('.address1'),
@@ -111,7 +106,7 @@ window.onload = function() {
 		setTimeout(function() {
 			$('.address h1').classList.add('shake');
 		}, 2500);
-	}, 14000);
+	}, 16000);
 
 }
 

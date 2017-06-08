@@ -107,6 +107,8 @@ h1.pink {
 .img2_text1 {
 	margin: 0;
 	padding: 5px 0;
+	padding-left: 15px;
+	box-sizing: border-box;
 	background-color: #D9107A;
 	margin-right: 30px;
 }
@@ -114,10 +116,11 @@ h1.pink {
 .img2_text2 {
 	margin: 0;
 	padding: 5px 0;
+	padding-left: 15px;
+	box-sizing: border-box;
 	background-color: #D9107A;
 	margin-right: 30px;
-	width: 150px;
-	padding: 0;
+	width: 170px;
 }
 
 /*ThirdBLock*/
@@ -149,7 +152,9 @@ h1.pink {
 .img3_text1 {
 	margin: 0;
 	margin-left: 30px;
-	padding: 5px 0;
+	padding: 5px;
+	padding-right: 15px;
+	box-sizing: border-box;
 	background-color: #D9107A;
 	display: inline-block
 }
@@ -158,10 +163,11 @@ h1.pink {
 	margin: 0;
 	margin-left: 30px;
 	padding: 5px 0;
+	padding-right: 15px;
+	box-sizing: border-box;
 	background-color: #D9107A;
 	display: inline-block;
-	width: 150px;
-	padding: 0;
+	width: 170px;
 }
 /*//////////////////////*/
 
